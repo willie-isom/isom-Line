@@ -30,13 +30,13 @@ except LineBotApiError as e:
 	raise e
 	
 try:
-	line_bot_api.push_message(to, TextSendMessage(text='https://github.com/willie-isom/isom-test/blob/master/1.xlsx?raw=true'))
+	line_bot_api.push_message(to, TextSendMessage(text='https://github.com/willie-isom/isom-Line/blob/master/1.xlsx?raw=true'))
 except LineBotApiError as e:
 	raise e
 
 #圖片訊息
 line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
-image_url = r"https://raw.githubusercontent.com/willie-isom/isom-test/master/" + imageFileName
+image_url = r"https://raw.githubusercontent.com/willie-isom/isom-Line/master/" + imageFileName
 
 try:
 	line_bot_api.push_message(to, ImageSendMessage(original_content_url=image_url, preview_image_url=image_url))
