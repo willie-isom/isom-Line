@@ -5,7 +5,7 @@ import threading, time, datetime
 import RPi.GPIO as GPIO
 import time
 #GPIO.cleanup()
-pinLED = [14,15,18,23,24,25,8,7,12,16]
+pinLED = [25,8,7,12,16]
 GPIO.setmode(GPIO.BCM)
 
 for i in range(len(pinLED)):
