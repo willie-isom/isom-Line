@@ -5,7 +5,7 @@ import threading, time, datetime
 import RPi.GPIO as GPIO
 import time
 #GPIO.cleanup()
-pinLED = [25,8,7,12,16]
+pinLED = [14,15,18,23,24,25,8,7,12,16]
 GPIO.setmode(GPIO.BCM)
 
 for i in range(len(pinLED)):
@@ -20,16 +20,16 @@ def main():
 			os.system("git pull")
 			if os.path.isfile('2.txt'): 
 				with open('2.txt', 'r') as file :
-					content = file.readline()
+					content = file.readline().strip()
 					print('[' + t + ']--[' + content + ']')
 			content = content.split(',')
-			for i in range(1, len(content)):
+			for i in range(6, len(content)):
 				if i == int(content[i]):
 					GPIO.output(pinLED[i-1],1)
 				else:
 					GPIO.output(pinLED[i-1],0)
 			time.sleep(1)
-			if (time.time() - oldTime) >= 500:break
+			#if (time.time() - oldTime) >= 500:break
 	except KeyboardInterrupt:
 		pass
 		GPIO.cleanup()			
