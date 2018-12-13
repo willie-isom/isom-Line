@@ -11,6 +11,7 @@ GPIO.setmode(GPIO.BCM)
 for i in range(len(pinLED)):
 	GPIO.setup(pinLED[i],GPIO.OUT)
 
+path = "/home/pi/isom-Line/"	
 def main():
 	content = ''
 	try:
@@ -18,8 +19,8 @@ def main():
 		while 1:
 			t = time.strftime("%Y%m%d_%H%M%S", time.localtime())
 			os.system("git pull")
-			if os.path.isfile('2.txt'): 
-				with open('2.txt', 'r') as file :
+			if os.path.isfile(path + '2.txt'): 
+				with open(path + '2.txt', 'r') as file :
 					content = file.readline().strip()
 					print('[' + t + ']--[' + content + ']')
 			content = content.split(',')
@@ -36,8 +37,3 @@ def main():
 	GPIO.cleanup()	
 	
 main()	
-#t = threading.Thread(target = job)
-#t.setDaemon(True)
-#t.start()	
-
-					
